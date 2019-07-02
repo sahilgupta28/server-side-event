@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            Practice|SSE
+        </title>
+    </head>
+    <body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            // var evtSource = new EventSource("sse.php", { withCredentials: true } ); 
+            // evtSource.onmessage = function(e) {
+            //     var newElement = document.createElement("li");
+            //     var eventList = document.getElementById('list');
+
+            //     newElement.innerHTML = "message: " + e.data;
+            //     eventList.appendChild(newElement);
+            // }
+            // console.log(evtSource);
+
+            // evtSource.addEventListener("ping", function(e) {
+            //     var newElement = document.createElement("li");
+                
+            //     var obj = JSON.parse(e.data);
+            //     newElement.innerHTML = "ping at " + obj.time;
+            //     eventList.appendChild(newElement);
+            // }, false);
+                // response.writeHead(200, {
+                //     'Content-Type': 'text/event-stream',
+                //     'Cache-Control': 'no-cache',
+                //     'Connection': 'keep-alive'
+                // });
+            var source = new EventSource('sse.php');
+            source.onmessage = function (event) {
+                alert(event.data);
+            };
+        </script>
+    </body>
+
+</html>

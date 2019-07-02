@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>HTML5 Server-Sent Events</title>
+<script>
+    window.onload = function(){
+        var source = new EventSource("server_time.php");
+        source.onmessage = function(event){
+            console.log(event.data);
+            data = JSON.parse(event.data);
+            document.getElementById("result").innerHTML = "Time " + data.time ;
+            document.getElementById("user-id").innerHTML = "User_id " + data.id ;
+        };
+    };
+</script>
+</head>
+<body>
+    <div id="result">
+        <!--Server response will be inserted here-->
+    </div>
+
+    <div id="user-id">
+        <!--Server response will be inserted here-->
+    </div>
+</body>
+</html>
